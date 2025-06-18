@@ -1,13 +1,14 @@
 {
   "app_info": {
-    "name": "Streamlit Cloud Demo",
-    "version": "1.0.0",
-    "description": "极简 Streamlit 应用示例",
+    "name": "Streamlit Community Cloud Demo",
+    "version": "v0.1.0",
+    "description": "支持中英文双语切换的 Streamlit 应用示例",
     "features": [
       "用户交互",
       "文件上传",
       "静态文件读取",
-      "数据展示"
+      "数据展示",
+      "中英文双语切换"
     ]
   },
   "sample_data": {

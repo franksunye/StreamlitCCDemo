@@ -317,7 +317,7 @@ elif current_page_id == "about":
     
     # 显示当前版本信息
     st.markdown("---")
-    st.markdown(f"**📋 版本信息：** Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Community Cloud")
+    st.markdown(f"**📋 版本信息：** v0.1.0 | Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Community Cloud")
     
     # 显示项目结构
     st.markdown("---")
