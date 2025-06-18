@@ -3,10 +3,11 @@ import json
 import pandas as pd
 import os
 from database import FeedbackDB
+from translations import get_text, get_language, set_language
 
 # 必须放在所有 Streamlit 相关代码之前
 st.set_page_config(
-    page_title="Streamlit Cloud Demo",
+    page_title="Streamlit Community Cloud Demo",
     page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -19,21 +20,41 @@ def init_db():
 
 db = init_db()
 
+# 获取当前语言
+current_language = get_language()
+
+# 语言切换器
+st.sidebar.markdown("---")
+language = st.sidebar.selectbox(
+    get_text("language_selector", current_language),
+    [get_text("language_en", "en"), get_text("language_zh", "zh")],
+    index=0 if current_language == "en" else 1,
+    key="language_selector"
+)
+
+# 更新语言设置
+if language == get_text("language_en", "en"):
+    set_language("en")
+    current_language = "en"
+else:
+    set_language("zh")
+    current_language = "zh"
+
 # 侧边栏菜单
-st.sidebar.title("🚀 导航菜单")
+st.sidebar.title(get_text("sidebar_title", current_language))
 
 # 菜单选项
 menu_options = {
-    "🏠 首页": "home",
-    "📊 数据展示": "data_display",
-    "📁 文件处理": "file_processing",
-    "💬 数据库": "database",
-    "ℹ️ 关于": "about"
+    get_text("menu_home", current_language): "home",
+    get_text("menu_data_display", current_language): "data_display",
+    get_text("menu_file_processing", current_language): "file_processing",
+    get_text("menu_database", current_language): "database",
+    get_text("menu_about", current_language): "about"
 }
 
 # 当前页面选择
 current_page = st.sidebar.selectbox(
-    "选择功能模块：",
+    get_text("select_module", current_language),
     list(menu_options.keys()),
     key="menu_selection"
 )
@@ -41,50 +62,55 @@ current_page = st.sidebar.selectbox(
 # 获取当前页面标识
 current_page_id = menu_options[current_page]
 
+# 颜色选项
+color_options_en = ["Red", "Blue", "Green", "Yellow", "Purple"]
+color_options_zh = ["红色", "蓝色", "绿色", "黄色", "紫色"]
+color_options = color_options_en if current_language == "en" else color_options_zh
+
 # 页面内容
 if current_page_id == "home":
     # 首页 - 基础交互功能
-    st.title("🏠 首页 - 基础交互功能")
-    st.markdown("欢迎使用 Streamlit Cloud Demo！这是一个功能完整的 Streamlit 应用示例。")
+    st.title(get_text("home_title", current_language))
+    st.markdown(get_text("home_welcome", current_language))
     
     # 添加一个简单的输入框
-    user_name = st.text_input("请输入你的名字：", "世界")
+    user_name = st.text_input(get_text("input_name_label", current_language), get_text("input_name_default", current_language))
     
     # 添加一个按钮
-    if st.button("点击问候"):
-        st.write(f"你好，{user_name}！欢迎使用 Streamlit！")
+    if st.button(get_text("greet_button", current_language)):
+        st.write(get_text("greet_message", current_language).format(user_name))
     
     # 添加一个滑块
-    age = st.slider("选择你的年龄：", 0, 100, 25)
-    st.write(f"你选择的年龄是：{age}")
+    age = st.slider(get_text("age_slider_label", current_language), 0, 100, 25)
+    st.write(get_text("age_selected", current_language).format(age))
     
     # 添加一个选择框
     favorite_color = st.selectbox(
-        "选择你喜欢的颜色：",
-        ["红色", "蓝色", "绿色", "黄色", "紫色"]
+        get_text("color_select_label", current_language),
+        color_options
     )
-    st.write(f"你喜欢的颜色是：{favorite_color}")
+    st.write(get_text("color_selected", current_language).format(favorite_color))
     
     # 显示一些基本信息
     st.markdown("---")
-    st.markdown("### 📋 功能说明")
-    st.markdown("这个应用展示了 Streamlit 的各种功能：")
-    st.markdown("- 🎯 用户交互组件")
-    st.markdown("- 📊 数据展示和分析")
-    st.markdown("- 📁 文件上传和处理")
-    st.markdown("- 💬 数据库操作")
-    st.markdown("- ☁️ 云端部署")
+    st.markdown(get_text("features_title", current_language))
+    st.markdown(get_text("features_intro", current_language))
+    st.markdown(get_text("feature_interactive", current_language))
+    st.markdown(get_text("feature_data", current_language))
+    st.markdown(get_text("feature_file", current_language))
+    st.markdown(get_text("feature_db", current_language))
+    st.markdown(get_text("feature_cloud", current_language))
 
 elif current_page_id == "data_display":
     # 数据展示页面 - 静态文件读取
-    st.title("📊 数据展示 - 静态文件读取")
-    st.markdown("展示从项目中的静态数据文件读取和展示功能。")
+    st.title(get_text("data_display_title", current_language))
+    st.markdown(get_text("data_display_intro", current_language))
     
     # 创建两列布局
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("#### 📊 JSON 数据文件")
+        st.markdown(get_text("json_data_title", current_language))
         
         # 读取 JSON 文件
         try:
@@ -92,75 +118,76 @@ elif current_page_id == "data_display":
                 json_data = json.load(f)
             
             # 显示应用信息
-            st.markdown("**应用信息：**")
+            st.markdown(get_text("app_info_title", current_language))
             app_info = json_data['app_info']
-            st.write(f"- 名称：{app_info['name']}")
-            st.write(f"- 版本：{app_info['version']}")
-            st.write(f"- 描述：{app_info['description']}")
+            st.write(get_text("name_label", current_language).format(app_info['name']))
+            st.write(get_text("version_label", current_language).format(app_info['version']))
+            st.write(get_text("description_label", current_language).format(app_info['description']))
             
             # 显示功能列表
-            st.markdown("**功能特性：**")
+            st.markdown(get_text("features_list_title", current_language))
             for feature in app_info['features']:
                 st.write(f"- {feature}")
             
             # 显示用户数据
-            st.markdown("**用户数据：**")
+            st.markdown(get_text("user_data_title", current_language))
             users = json_data['sample_data']['users']
             for user in users:
-                st.write(f"- {user['name']} ({user['age']}岁, {user['city']})")
+                age_text = f"{user['age']}岁" if current_language == "zh" else f"{user['age']} years old"
+                st.write(get_text("user_info", current_language).format(user['name'], age_text, user['city']))
             
             # 显示统计信息
             stats = json_data['sample_data']['statistics']
-            st.markdown("**统计信息：**")
-            st.write(f"- 总用户数：{stats['total_users']}")
-            st.write(f"- 平均年龄：{stats['average_age']}")
-            st.write(f"- 城市：{', '.join(stats['cities'])}")
+            st.markdown(get_text("statistics_title", current_language))
+            st.write(get_text("total_users", current_language).format(stats['total_users']))
+            st.write(get_text("avg_age", current_language).format(stats['average_age']))
+            st.write(get_text("cities", current_language).format(', '.join(stats['cities'])))
             
         except Exception as e:
-            st.error(f"❌ 读取 JSON 文件时出错：{str(e)}")
+            st.error(get_text("json_error", current_language).format(str(e)))
     
     with col2:
-        st.markdown("#### 🌤️ CSV 数据文件")
+        st.markdown(get_text("csv_data_title", current_language))
         
         # 读取 CSV 文件
         try:
             df = pd.read_csv('data/weather_data.csv')
             
             # 显示数据表格
-            st.markdown("**天气数据：**")
+            st.markdown(get_text("weather_data_title", current_language))
             st.dataframe(df, use_container_width=True)
             
             # 显示统计信息
-            st.markdown("**数据统计：**")
-            st.write(f"- 总记录数：{len(df)}")
-            st.write(f"- 城市数量：{df['城市'].nunique()}")
-            st.write(f"- 平均温度：{df['温度'].mean():.1f}°C")
-            st.write(f"- 平均湿度：{df['湿度'].mean():.1f}%")
+            st.markdown(get_text("data_stats_title", current_language))
+            st.write(get_text("total_records", current_language).format(len(df)))
+            st.write(get_text("city_count", current_language).format(df['城市'].nunique()))
+            st.write(get_text("avg_temp", current_language).format(df['温度'].mean()))
+            st.write(get_text("avg_humidity", current_language).format(df['湿度'].mean()))
             
             # 显示天气状况统计
             weather_counts = df['天气状况'].value_counts()
-            st.markdown("**天气状况分布：**")
+            st.markdown(get_text("weather_dist_title", current_language))
             for weather, count in weather_counts.items():
-                st.write(f"- {weather}：{count}次")
+                st.write(get_text("weather_count", current_language).format(weather, count))
                 
         except Exception as e:
-            st.error(f"❌ 读取 CSV 文件时出错：{str(e)}")
+            st.error(get_text("csv_error", current_language).format(str(e)))
 
 elif current_page_id == "file_processing":
     # 文件处理页面 - 文件上传功能
-    st.title("📁 文件处理 - 文件上传功能")
-    st.markdown("支持多种格式文件的上传、读取和内容分析。")
+    st.title(get_text("file_processing_title", current_language))
+    st.markdown(get_text("file_processing_intro", current_language))
     
     # 文件上传组件
     uploaded_file = st.file_uploader(
-        "选择一个文本文件来测试文件读取功能：", 
+        get_text("file_uploader_label", current_language), 
         type=['txt', 'md', 'py', 'json', 'csv']
     )
     
     if uploaded_file is not None:
         # 显示文件信息
-        st.success(f"✅ 成功上传文件：{uploaded_file.name}")
-        st.info(f"📊 文件大小：{uploaded_file.size} 字节")
+        st.success(get_text("upload_success", current_language).format(uploaded_file.name))
+        st.info(get_text("file_size", current_language).format(uploaded_file.size))
         
         # 读取并显示文件内容
         try:
@@ -174,67 +201,67 @@ elif current_page_id == "file_processing":
                 text_content = file_content.decode('latin-1')
             
             # 显示文件内容
-            st.markdown("#### 📄 文件内容：")
-            st.text_area("文件内容预览：", text_content, height=200)
+            st.markdown(get_text("file_content_title", current_language))
+            st.text_area(get_text("file_preview_label", current_language), text_content, height=200)
             
             # 显示统计信息
             lines = text_content.split('\n')
             words = text_content.split()
-            st.markdown(f"**📈 统计信息：**")
-            st.markdown(f"- 行数：{len(lines)}")
-            st.markdown(f"- 单词数：{len(words)}")
-            st.markdown(f"- 字符数：{len(text_content)}")
+            st.markdown(get_text("stats_info_title", current_language))
+            st.markdown(get_text("line_count", current_language).format(len(lines)))
+            st.markdown(get_text("word_count", current_language).format(len(words)))
+            st.markdown(get_text("char_count", current_language).format(len(text_content)))
             
         except Exception as e:
-            st.error(f"❌ 读取文件时出错：{str(e)}")
+            st.error(get_text("file_read_error", current_language).format(str(e)))
     else:
-        st.info("👆 请上传一个文件来开始测试")
+        st.info(get_text("upload_prompt", current_language))
         
         # 显示支持的文件格式
-        st.markdown("### 📋 支持的文件格式")
-        st.markdown("- **文本文件** (.txt) - 纯文本内容")
-        st.markdown("- **Markdown** (.md) - 格式化文档")
-        st.markdown("- **Python** (.py) - Python 代码文件")
-        st.markdown("- **JSON** (.json) - 结构化数据")
-        st.markdown("- **CSV** (.csv) - 表格数据")
+        st.markdown(get_text("supported_formats_title", current_language))
+        st.markdown(get_text("txt_format", current_language))
+        st.markdown(get_text("md_format", current_language))
+        st.markdown(get_text("py_format", current_language))
+        st.markdown(get_text("json_format", current_language))
+        st.markdown(get_text("csv_format", current_language))
 
 elif current_page_id == "database":
     # 数据库页面 - SQLite 用户反馈系统
-    st.title("💬 数据库 - SQLite 用户反馈系统")
-    st.markdown("展示 SQLite 数据库的增删改查操作。")
+    st.title(get_text("database_title", current_language))
+    st.markdown(get_text("database_intro", current_language))
     
     # 创建两列布局
     feedback_col1, feedback_col2 = st.columns([1, 2])
     
     with feedback_col1:
-        st.markdown("#### 📝 提交反馈")
+        st.markdown(get_text("submit_feedback_title", current_language))
         
         # 反馈表单
         with st.form("feedback_form"):
-            feedback_name = st.text_input("您的姓名：", key="feedback_name")
-            feedback_message = st.text_area("反馈内容：", height=100, key="feedback_message")
-            submit_button = st.form_submit_button("提交反馈")
+            feedback_name = st.text_input(get_text("feedback_name_label", current_language), key="feedback_name")
+            feedback_message = st.text_area(get_text("feedback_message_label", current_language), height=100, key="feedback_message")
+            submit_button = st.form_submit_button(get_text("submit_button", current_language))
             
             if submit_button:
                 if feedback_name and feedback_message:
                     if db.add_feedback(feedback_name, feedback_message):
-                        st.success("✅ 反馈提交成功！")
+                        st.success(get_text("feedback_success", current_language))
                         # 清空表单
                         st.rerun()
                     else:
-                        st.error("❌ 反馈提交失败，请重试")
+                        st.error(get_text("feedback_error", current_language))
                 else:
-                    st.warning("⚠️ 请填写姓名和反馈内容")
+                    st.warning(get_text("feedback_warning", current_language))
     
     with feedback_col2:
-        st.markdown("#### 📊 反馈统计")
+        st.markdown(get_text("feedback_stats_title", current_language))
         
         # 获取反馈统计
         feedback_count = db.get_feedback_count()
-        st.metric("总反馈数", feedback_count)
+        st.metric(get_text("total_feedback", current_language), feedback_count)
         
         # 显示最新反馈
-        st.markdown("**最新反馈：**")
+        st.markdown(get_text("latest_feedback_title", current_language))
         all_feedback = db.get_all_feedback()
         
         if all_feedback:
@@ -243,33 +270,34 @@ elif current_page_id == "database":
                 with st.container():
                     st.markdown(f"**{name}** ({created_at})")
                     st.markdown(f"_{message}_")
-                    if st.button(f"删除", key=f"delete_{feedback_id}"):
+                    if st.button(get_text("delete_button", current_language), key=f"delete_{feedback_id}"):
                         if db.delete_feedback(feedback_id):
-                            st.success("✅ 删除成功！")
+                            st.success(get_text("delete_success", current_language))
                             st.rerun()
                         else:
-                            st.error("❌ 删除失败")
+                            st.error(get_text("delete_error", current_language))
                     st.markdown("---")
         else:
-            st.info("暂无反馈")
+            st.info(get_text("no_feedback", current_language))
 
 elif current_page_id == "about":
     # 关于页面 - 应用信息
-    st.title("ℹ️ 关于 - 应用信息")
-    st.markdown("了解这个 Streamlit 应用的详细信息。")
+    st.title(get_text("about_title", current_language))
+    st.markdown(get_text("about_intro", current_language))
     
     # 创建两列布局显示应用信息
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("**🎯 应用特性：**")
-        st.markdown("- 用户交互功能")
-        st.markdown("- 文件上传读取")
-        st.markdown("- 静态文件处理")
-        st.markdown("- 数据展示分析")
+        st.markdown(get_text("app_features_title", current_language))
+        st.markdown(get_text("feature_interactive_about", current_language))
+        st.markdown(get_text("feature_file_about", current_language))
+        st.markdown(get_text("feature_static_about", current_language))
+        st.markdown(get_text("feature_data_about", current_language))
         st.markdown("- SQLite 数据库支持")
         st.markdown("- 响应式设计")
         st.markdown("- 菜单导航系统")
+        st.markdown("- 🌐 双语支持 (English/中文)")
     
     with col2:
         st.markdown("**🛠️ 技术栈：**")
@@ -278,6 +306,7 @@ elif current_page_id == "about":
         st.markdown("- SQLite 数据库")
         st.markdown("- Python 3.13+")
         st.markdown("- 云端部署就绪")
+        st.markdown("- 国际化支持")
     
     # 显示版本和链接信息
     st.markdown("---")
@@ -288,7 +317,7 @@ elif current_page_id == "about":
     
     # 显示当前版本信息
     st.markdown("---")
-    st.markdown(f"**📋 版本信息：** Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Cloud")
+    st.markdown(f"**📋 版本信息：** Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Community Cloud")
     
     # 显示项目结构
     st.markdown("---")
@@ -297,6 +326,7 @@ elif current_page_id == "about":
     ```
     StreamlitCCDemo/
     ├── app.py                    # 主应用文件
+    ├── translations.py           # 双语翻译配置
     ├── requirements.txt          # Python 依赖
     ├── README.md                # 项目说明
     ├── LICENSE                  # MIT 许可证

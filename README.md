@@ -1,4 +1,4 @@
-# 🚀 Streamlit Cloud Demo
+# 🚀 Streamlit Community Cloud Demo
 
 [![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sccdemo.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
@@ -9,7 +9,7 @@
 
 > 🌐 **在线演示**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
 
-一个功能完整的 Streamlit 应用示例，展示如何在 Streamlit Cloud 上快速部署交互式 Web 应用。包含用户交互、文件处理、数据展示等核心功能。
+一个功能完整的 Streamlit 应用示例，展示如何在 Streamlit Community Cloud 上快速部署交互式 Web 应用。包含用户交互、文件处理、数据展示等核心功能。
 
 ## ✨ 功能特性
 
@@ -19,7 +19,7 @@
 - 📂 **静态文件读取** - 读取项目中的 JSON 和 CSV 数据文件
 - 📊 **数据展示** - 表格展示、统计分析、数据可视化
 - 📱 **响应式布局** - 适配各种设备屏幕
-- ☁️ **云端部署** - 一键部署到 Streamlit Cloud
+- ☁️ **云端部署** - 一键部署到 Streamlit Community Cloud
 - 🚀 **快速启动** - 最小化依赖，快速运行
 
 ## 🛠️ 技术栈
@@ -28,7 +28,7 @@
 - **Streamlit** - 1.45.1 (最新版本)
 - **Pandas** - 2.2.0+ (支持 Python 3.13)
 - **GitHub** - 代码托管
-- **Streamlit Cloud** - 云端部署
+- **Streamlit Community Cloud** - 云端部署
 
 ## 📦 安装与运行
 
@@ -59,10 +59,10 @@ streamlit run app.py
 
 ## ☁️ 云端部署
 
-### Streamlit Cloud 部署
+### Streamlit Community Cloud 部署
 
 1. **Fork 本仓库** 到你的 GitHub 账号
-2. **访问** [Streamlit Cloud](https://share.streamlit.io/)
+2. **访问** [Streamlit Community Cloud](https://share.streamlit.io/)
 3. **登录** 使用 GitHub 账号
 4. **创建新应用**:
    - Repository: `你的用户名/StreamlitCCDemo`
@@ -175,7 +175,7 @@ st.write(f"- 平均温度：{df['温度'].mean():.1f}°C")
 ## 🔗 相关链接
 
 - [Streamlit 官方文档](https://docs.streamlit.io/)
-- [Streamlit Cloud 部署指南](https://docs.streamlit.io/streamlit-community-cloud)
+- [Streamlit Community Cloud 部署指南](https://docs.streamlit.io/streamlit-community-cloud)
 - [Pandas 官方文档](https://pandas.pydata.org/docs/)
 - [GitHub 仓库](https://github.com/franksunye/StreamlitCCDemo)
 
