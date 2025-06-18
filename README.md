@@ -7,207 +7,211 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)](https://github.com/franksunye/StreamlitCCDemo)
 
-> 🌐 **在线演示**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
+## 🌐 Read this in other languages: [中文](README.zh.md) | [Español](README.es.md)
 
-一个功能完整的 Streamlit 应用示例，展示如何在 Streamlit Community Cloud 上快速部署交互式 Web 应用。**支持中英文双语切换，具备国际化（i18n）能力**，包含用户交互、文件处理、数据展示等核心功能。
+> 🌐 **Online Demo**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
 
-## ✨ 功能特性
+A fully-featured Streamlit application demo, showing how to quickly deploy interactive web apps on Streamlit Community Cloud. **Supports English, Chinese, and Spanish (i18n)**, including user interaction, file processing, data display, and database features.
 
-- 🎯 **极简设计** - 简洁清晰的用户界面
-- 🔄 **实时交互** - 文本输入、按钮点击、滑块调节、下拉选择
-- 📁 **文件上传** - 支持多种格式文件上传和内容读取
-- 📂 **静态文件读取** - 读取项目中的 JSON 和 CSV 数据文件
-- 📊 **数据展示** - 表格展示、统计分析、数据可视化
-- 📱 **响应式布局** - 适配各种设备屏幕
-- 🌐 **中英文双语切换** - 侧边栏可随时切换 English/中文
-- ☁️ **云端部署** - 一键部署到 Streamlit Community Cloud
-- 🚀 **快速启动** - 最小化依赖，快速运行
+## ✨ Features
 
-## 🛠️ 技术栈
+- 🎯 **Minimalist Design** - Clean and clear user interface
+- 🔄 **Real-time Interaction** - Text input, button click, slider, selectbox
+- 📁 **File Upload** - Supports multiple file formats and content preview
+- 📂 **Static File Reading** - Read JSON and CSV data files in the project
+- 📊 **Data Display** - Table, statistics, and data visualization
+- 📱 **Responsive Layout** - Adapts to all device screens
+- 🌐 **Multi-language Switch** - Sidebar language selector for English/中文/Español
+- ☁️ **Cloud Deployment** - One-click deploy to Streamlit Community Cloud
+- 🚀 **Quick Start** - Minimal dependencies, fast to run
+
+## 🛠️ Tech Stack
 
 - **Python** - 3.13+
-- **Streamlit** - 1.45.1 (最新版本)
-- **Pandas** - 2.2.0+ (支持 Python 3.13)
-- **GitHub** - 代码托管
-- **Streamlit Community Cloud** - 云端部署
+- **Streamlit** - 1.45.1 (latest)
+- **Pandas** - 2.2.0+ (supports Python 3.13)
+- **GitHub** - Code hosting
+- **Streamlit Community Cloud** - Cloud deployment
 
-## 📦 安装与运行
+## 📦 Installation & Run
 
-### 环境要求
-- Python 3.13 或更高版本
-- pip 包管理器
+### Requirements
+- Python 3.13 or above
+- pip package manager
 
-### 本地运行
+### Run Locally
 
-1. **克隆仓库**
+1. **Clone the repo**
 ```bash
 git clone https://github.com/franksunye/StreamlitCCDemo.git
 cd StreamlitCCDemo
 ```
 
-2. **安装依赖**
+2. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **启动应用**
+3. **Start the app**
 ```bash
 streamlit run app.py
 ```
 
-4. **访问应用**
-打开浏览器访问 `http://localhost:8501`
+4. **Visit the app**
+Open your browser and go to `http://localhost:8501`
 
-## ☁️ 云端部署
+## ☁️ Cloud Deployment
 
-### Streamlit Community Cloud 部署
+### Deploy on Streamlit Community Cloud
 
-1. **Fork 本仓库** 到你的 GitHub 账号
-2. **访问** [Streamlit Community Cloud](https://share.streamlit.io/)
-3. **登录** 使用 GitHub 账号
-4. **创建新应用**:
-   - Repository: `你的用户名/StreamlitCCDemo`
+1. **Fork this repo** to your GitHub account
+2. **Go to** [Streamlit Community Cloud](https://share.streamlit.io/)
+3. **Log in** with your GitHub account
+4. **Create a new app**:
+   - Repository: `your-username/StreamlitCCDemo`
    - Branch: `main`
    - Main file path: `app.py`
-5. **点击 Deploy** 等待部署完成
+5. **Click Deploy** and wait for deployment
 
-### 自定义部署
+### Custom Deployment
 
-你也可以修改代码后重新部署：
+You can also modify the code and redeploy:
 ```bash
 git add .
-git commit -m "feat: 添加新功能"
+git commit -m "feat: add new feature"
 git push origin main
 ```
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 StreamlitCCDemo/
-├── app.py                    # 主应用文件
-├── translations.py           # 双语翻译配置
-├── requirements.txt          # Python 依赖
-├── README.md                # 项目说明
-├── LICENSE                  # MIT 许可证
-├── sample.txt               # 示例文本文件
-└── data/                    # 数据文件目录
-    ├── sample_data.json     # JSON 示例数据
-    └── weather_data.csv     # CSV 天气数据
+├── app.py                    # Main app file
+├── translations.json         # Multi-language translations
+├── requirements.txt          # Python dependencies
+├── README.md                # Project description (English)
+├── README.zh.md             # Project description (Chinese)
+├── README.es.md             # Project description (Spanish)
+├── LICENSE                  # MIT License
+├── sample.txt               # Sample text file
+└── data/                    # Data files
+    ├── sample_data.json     # JSON sample data
+    └── weather_data.csv     # CSV weather data
 ```
 
-## 🎮 使用说明
+## 🎮 Usage
 
-### 语言切换
-- **侧边栏 Language/语言 切换器**：可随时切换 English/中文，所有界面和功能即时切换为对应语言。
-- **默认语言**：应用首次打开为英文，可手动切换为中文。
+### Language Switch
+- **Sidebar Language Selector**: Instantly switch between English/中文/Español, all UI and features update immediately.
+- **Default Language**: English on first load, can be changed anytime.
 
-### 基础交互功能
-- **文本输入框** - 输入你的名字，支持 session state 持久化
-- **问候按钮** - 点击获取个性化问候
-- **年龄滑块** - 选择年龄范围 (0-100)
-- **颜色选择器** - 选择喜欢的颜色
+### Basic Interactive Features
+- **Text Input** - Enter your name, supports session state
+- **Greet Button** - Click to get a personalized greeting
+- **Age Slider** - Select age (0-100)
+- **Color Selector** - Choose your favorite color
 
-### 文件处理功能
-- **文件上传** - 支持 txt, md, py, json, csv 格式
-- **内容预览** - 实时显示文件内容
-- **统计信息** - 显示行数、单词数、字符数
-- **编码支持** - 自动处理 UTF-8 和 Latin-1 编码
+### File Processing
+- **File Upload** - Supports txt, md, py, json, csv
+- **Content Preview** - Real-time file content display
+- **Statistics** - Show line, word, and character count
+- **Encoding Support** - Handles UTF-8 and Latin-1
 
-### 静态数据展示
-- **JSON 数据** - 应用信息、用户数据、统计信息
-- **CSV 数据** - 天气数据表格和统计分析
-- **双列布局** - 左右分栏展示不同类型数据
+### Static Data Display
+- **JSON Data** - App info, user data, statistics
+- **CSV Data** - Weather data table and analysis
+- **Two-column Layout** - Display different data types side by side
 
-## 🔧 技术细节
+## 🔧 Technical Details
 
-### 国际化（i18n）实现
-- 所有界面文本均通过 `translations.py` 统一管理，支持多语言扩展
-- 语言切换即时生效，无需刷新页面
-- 采用 Streamlit session state 保持用户选择
+### Internationalization (i18n)
+- All UI texts managed via `translations.json`, easy to extend to more languages
+- Language switch is instant, no page reload needed
+- Uses Streamlit session state to remember user choice
 
-### Session State 管理
-应用使用 Streamlit 的 session state 功能来保持用户输入状态：
+### Session State
+The app uses Streamlit's session state to persist user input:
 ```python
-# 初始化 session state
+# Initialize session state
 if 'user_name' not in st.session_state:
-    st.session_state.user_name = "世界"
+    st.session_state.user_name = "World"
 
-# 使用 session state
-user_name = st.text_input("请输入你的名字：", value=st.session_state.user_name, key="user_name_input")
+# Use session state
+user_name = st.text_input("Enter your name:", value=st.session_state.user_name, key="user_name_input")
 ```
 
-### 文件读取处理
-支持多种文件格式的安全读取：
+### File Reading
+Safe reading for multiple file formats:
 ```python
-# 安全解码
+# Safe decode
 try:
     text_content = file_content.decode('utf-8')
 except UnicodeDecodeError:
     text_content = file_content.decode('latin-1')
 ```
 
-### 数据展示优化
-使用 pandas 进行数据处理和展示：
+### Data Display
+Uses pandas for data processing and display:
 ```python
-# 数据统计
-st.write(f"- 总记录数：{len(df)}")
-st.write(f"- 平均温度：{df['温度'].mean():.1f}°C")
+# Data statistics
+st.write(f"- Total records: {len(df)}")
+st.write(f"- Average temperature: {df['Temperature'].mean():.1f}°C")
 ```
 
-## 🚀 版本历史
+## 🚀 Version History
 
-### v0.1.0 (当前版本)
-- ✅ 新增中英文双语切换，支持国际化（i18n）
-- ✅ 所有界面和功能均可即时切换语言
-- ✅ 新增 translations.py 统一管理多语言文本
-- ✅ 升级到 Streamlit 1.45.1
-- ✅ 升级到 Pandas 2.2.0+ (支持 Python 3.13)
-- ✅ 修复 session state 兼容性问题
-- ✅ 添加静态文件读取功能
-- ✅ 完善错误处理机制
+### v0.1.0 (Current)
+- ✅ Added English, Chinese, and Spanish language support (i18n)
+- ✅ All UI and features can switch language instantly
+- ✅ Added translations.json for unified text management
+- ✅ Upgraded to Streamlit 1.45.1
+- ✅ Upgraded to Pandas 2.2.0+ (Python 3.13 support)
+- ✅ Improved session state compatibility
+- ✅ Added static file reading
+- ✅ Enhanced error handling
 
-### 主要更新
-- **依赖升级** - 使用最新稳定版本
-- **兼容性修复** - 解决 Python 3.13 兼容性问题
-- **功能增强** - 添加数据展示和文件处理功能
-- **国际化支持** - 支持中英文双语切换
-- **代码优化** - 改进错误处理和用户体验
+### Major Updates
+- **Dependency Upgrades** - Latest stable versions
+- **Compatibility Fixes** - Python 3.13 support
+- **Feature Enhancements** - Data display and file processing
+- **Internationalization** - Multi-language support
+- **Code Optimization** - Better error handling and UX
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Contributions are welcome!
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
+1. Fork this repo
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
-## 🔗 相关链接
+## 🔗 Useful Links
 
-- [Streamlit 官方文档](https://docs.streamlit.io/)
-- [Streamlit Community Cloud 部署指南](https://docs.streamlit.io/streamlit-community-cloud)
-- [Pandas 官方文档](https://pandas.pydata.org/docs/)
-- [GitHub 仓库](https://github.com/franksunye/StreamlitCCDemo)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [Streamlit Community Cloud Guide](https://docs.streamlit.io/streamlit-community-cloud)
+- [Pandas Documentation](https://pandas.pydata.org/docs/)
+- [GitHub Repository](https://github.com/franksunye/StreamlitCCDemo)
 
-## 📞 联系方式
+## 📞 Contact
 
 - **GitHub**: [@franksunye](https://github.com/franksunye)
-- **在线演示**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
+- **Online Demo**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
 
-## 🎯 项目亮点
+## 🎯 Project Highlights
 
-- **最新技术栈** - 使用最新版本的 Streamlit 和 Pandas
-- **完整功能演示** - 涵盖 Streamlit 的主要功能特性
-- **生产就绪** - 包含错误处理、兼容性检查和最佳实践
-- **易于扩展** - 清晰的代码结构，便于添加新功能
-- **国际化支持** - 支持中英文双语切换，适合全球用户
-- **文档完善** - 详细的说明和使用指南
+- **Latest Tech Stack** - Use latest versions of Streamlit and Pandas
+- **Complete Feature Demo** - Covers main features of Streamlit
+- **Production Ready** - Includes error handling, compatibility check, and best practices
+- **Easy to Extend** - Clear code structure, easy to add new features
+- **Internationalization** - Multi-language support, suitable for global users
+- **Documentation** - Detailed explanation and usage guide
 
 ---
 
-⭐ 如果这个项目对你有帮助，请给它一个星标！ 
+⭐ If this project helps you, please give it a star! 
