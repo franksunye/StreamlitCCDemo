@@ -1,17 +1,18 @@
-# 🚀 Streamlit Community Cloud Demo
+# 🚀 Streamlit Community Cloud Demo: Multi-language Interactive Data Visualization App
 
-[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sccdemo.streamlit.app/)
-[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)](https://streamlit.io/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)](https://pandas.pydata.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)](https://github.com/franksunye/StreamlitCCDemo)
-
-## 🌐 Read this in other languages: [中文](README.zh.md) | [Español](README.es.md)
+![Streamlit Badge](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)
+![Python 3.13+](https://img.shields.io/badge/Python-3.13+-blue.svg)
+![Streamlit 1.45.1](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)
+![Pandas 2.2.0+](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)
 
 > 🌐 **Online Demo**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
-A fully-featured Streamlit application demo, showing how to quickly deploy interactive web apps on Streamlit Community Cloud. **Supports English, Chinese, and Spanish (i18n)**, including user interaction, file processing, data display, and database features.
+**Open-source, multi-language Streamlit demo for interactive data visualization, file upload, and user feedback. Instantly deployable on Community Cloud. Supports English, Chinese, and Spanish.**
+
+<!-- Language Switch -->
+## 🌐 Read this in other languages: [中文](README.zh.md) | [Español](README.es.md)
 
 ## ✨ Features
 
