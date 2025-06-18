@@ -1,22 +1,23 @@
-# 🚀 Streamlit Community Cloud Demo
+# 🚀 Streamlit Community Cloud 多语言数据可视化演示
 
-[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sccdemo.streamlit.app/)
-[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)](https://streamlit.io/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)](https://pandas.pydata.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)](https://github.com/franksunye/StreamlitCCDemo)
+![Streamlit 徽章](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)
+![Python 3.13+](https://img.shields.io/badge/Python-3.13+-blue.svg)
+![Streamlit 1.45.1](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)
+![Pandas 2.2.0+](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)
+![MIT 许可证](https://img.shields.io/badge/License-MIT-green.svg)
+![GitHub 仓库](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)
 
 ## 🌐 选择语言: [English](README.md) | [Español](README.es.md)
 
 > 🌐 **在线演示**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
-一个功能完整的 Streamlit 应用示例，展示如何在 Streamlit Community Cloud 上快速部署交互式 Web 应用。**支持英文、中文、西班牙文多语言切换（i18n）**，包含用户交互、文件处理、数据展示、数据库等核心功能。
+**开源 Streamlit 多语言数据可视化演示项目，支持交互式数据展示、文件上传、用户反馈、聊天演示，适合云端一键部署。支持英文、中文、西班牙文。**
 
 ## ✨ 功能特性
 
-- 🎯 **极简设计** - 简洁清晰的用户界面
+- �� **极简设计** - 简洁清晰的用户界面
 - 🔄 **实时交互** - 文本输入、按钮点击、滑块调节、下拉选择
+- 💬 **聊天演示** - 基于 Streamlit 官方组件的多语言聊天界面
 - 📁 **文件上传** - 支持多种格式文件上传和内容读取
 - 📂 **静态文件读取** - 读取项目中的 JSON 和 CSV 数据文件
 - 📊 **数据展示** - 表格展示、统计分析、数据可视化

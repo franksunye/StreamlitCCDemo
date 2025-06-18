@@ -9,7 +9,7 @@
 
 > 🌐 **Online Demo**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
-**Open-source, multi-language Streamlit demo for interactive data visualization, file upload, and user feedback. Instantly deployable on Community Cloud. Supports English, Chinese, and Spanish.**
+**Open-source, multi-language Streamlit demo for interactive data visualization, file upload, user feedback, and chat. Instantly deployable on Community Cloud. Supports English, Chinese, and Spanish.**
 
 <!-- Language Switch -->
 ## 🌐 Read this in other languages: [中文](README.zh.md) | [Español](README.es.md)
@@ -18,6 +18,7 @@
 
 - 🎯 **Minimalist Design** - Clean and clear user interface
 - 🔄 **Real-time Interaction** - Text input, button click, slider, selectbox
+- 💬 **Chat Demo** - Multi-language chat interface using Streamlit official chat components
 - 📁 **File Upload** - Supports multiple file formats and content preview
 - 📂 **Static File Reading** - Read JSON and CSV data files in the project
 - 📊 **Data Display** - Table, statistics, and data visualization

@@ -1,22 +1,23 @@
-# 🚀 Streamlit Community Cloud Demo
+# 🚀 Streamlit Community Cloud Demo: Aplicación Web Interactiva Multi-idioma
 
-[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sccdemo.streamlit.app/)
-[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)](https://streamlit.io/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)](https://pandas.pydata.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)](https://github.com/franksunye/StreamlitCCDemo)
+![Insignia Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)
+![Python 3.13+](https://img.shields.io/badge/Python-3.13+-blue.svg)
+![Streamlit 1.45.1](https://img.shields.io/badge/Streamlit-1.45.1-red.svg)
+![Pandas 2.2.0+](https://img.shields.io/badge/Pandas-2.2.0+-green.svg)
+![Licencia MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Repositorio GitHub](https://img.shields.io/badge/GitHub-Repository-brightgreen.svg)
 
 ## 🌐 Leer en otros idiomas: [English](README.md) | [中文](README.zh.md)
 
 > 🌐 **Demo en línea**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
-Una demo de aplicación Streamlit totalmente funcional, que muestra cómo desplegar rápidamente aplicaciones web interactivas en Streamlit Community Cloud. **Soporta inglés, chino y español (i18n)**, incluyendo interacción de usuario, procesamiento de archivos, visualización de datos y base de datos.
+**Demo open source de Streamlit para visualización de datos interactiva, carga de archivos, feedback de usuarios y chat. Despliegue instantáneo en Community Cloud. Soporta inglés, chino y español.**
 
 ## ✨ Características
 
 - 🎯 **Diseño minimalista** - Interfaz de usuario limpia y clara
 - 🔄 **Interacción en tiempo real** - Entrada de texto, botón, deslizador, selectbox
+- 💬 **Demo de Chat** - Interfaz de chat multi-idioma usando componentes oficiales de Streamlit
 - 📁 **Carga de archivos** - Soporta múltiples formatos y vista previa de contenido
 - 📂 **Lectura de archivos estáticos** - Lee archivos JSON y CSV del proyecto
 - 📊 **Visualización de datos** - Tablas, estadísticas y visualización
