@@ -9,7 +9,7 @@
 
 ## 🌐 选择语言: [English](README.md) | [Español](README.es.md)
 
-> 🌐 **在线演示**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
+> 🌐 **在线演示**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
 一个功能完整的 Streamlit 应用示例，展示如何在 Streamlit Community Cloud 上快速部署交互式 Web 应用。**支持英文、中文、西班牙文多语言切换（i18n）**，包含用户交互、文件处理、数据展示、数据库等核心功能。
 
@@ -201,4 +201,4 @@ st.write(f"- 平均温度：{df['温度'].mean():.1f}°C")
 ## 📞 联系方式
 
 - **GitHub**: [@franksunye](https://github.com/franksunye)
-- **在线演示**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/) 
+- **在线演示**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/) 

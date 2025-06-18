@@ -9,7 +9,7 @@
 
 ## 🌐 Read this in other languages: [中文](README.zh.md) | [Español](README.es.md)
 
-> 🌐 **Online Demo**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
+> 🌐 **Online Demo**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
 A fully-featured Streamlit application demo, showing how to quickly deploy interactive web apps on Streamlit Community Cloud. **Supports English, Chinese, and Spanish (i18n)**, including user interaction, file processing, data display, and database features.
 
@@ -201,7 +201,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) for deta
 ## 📞 Contact
 
 - **GitHub**: [@franksunye](https://github.com/franksunye)
-- **Online Demo**: [https://sccdemo.streamlit.app/](https://sccdemo.streamlit.app/)
+- **Online Demo**: [https://community-cloud-demo.streamlit.app/](https://community-cloud-demo.streamlit.app/)
 
 ## 🎯 Project Highlights
 
