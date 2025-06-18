@@ -48,22 +48,38 @@ st.sidebar.title(get_text("sidebar_title", current_language))
 
 # 菜单选项
 menu_options = {
-    get_text("menu_home", current_language): "home",
-    get_text("menu_data_display", current_language): "data_display",
-    get_text("menu_file_processing", current_language): "file_processing",
-    get_text("menu_database", current_language): "database",
-    get_text("menu_about", current_language): "about"
+    "home": get_text("menu_home", current_language),
+    "data_display": get_text("menu_data_display", current_language),
+    "file_processing": get_text("menu_file_processing", current_language),
+    "database": get_text("menu_database", current_language),
+    "about": get_text("menu_about", current_language)
 }
 
-# 当前页面选择
-current_page = st.sidebar.selectbox(
-    get_text("select_module", current_language),
-    list(menu_options.keys()),
-    key="menu_selection"
-)
+# 当前页面选择 - 使用按钮式导航
+st.sidebar.markdown("### 📋 " + get_text("select_module", current_language))
+
+# 初始化当前页面
+if 'current_page_id' not in st.session_state:
+    st.session_state.current_page_id = "home"
+
+# 创建按钮式菜单
+for page_id, page_name in menu_options.items():
+    # 根据当前页面设置按钮样式
+    if st.sidebar.button(
+        page_name,
+        key=f"menu_{page_id}",
+        type="primary" if st.session_state.current_page_id == page_id else "secondary"
+    ):
+        st.session_state.current_page_id = page_id
+        st.rerun()
 
 # 获取当前页面标识
-current_page_id = menu_options[current_page]
+current_page_id = st.session_state.current_page_id
+
+# 在侧边栏底部添加版本号
+st.sidebar.markdown("---")
+st.sidebar.markdown("**📋 Version:** v0.1.0")
+st.sidebar.markdown("*Streamlit Community Cloud Demo*")
 
 # 颜色选项 - 根据语言提供不同的颜色选项
 color_options_map = {
