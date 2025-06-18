@@ -145,6 +145,32 @@ if uploaded_file is not None:
 # 显示一些基本信息
 st.markdown("---")
 st.markdown("### 关于这个应用")
-st.markdown("这是一个最简单的 Streamlit 应用示例，可以在 Streamlit Cloud 上部署。")
-st.markdown("**功能：** 支持用户交互、文件上传、静态文件读取和数据展示！")
-st.markdown(f"**Streamlit 版本：** {st.__version__}") 
+
+# 创建两列布局显示应用信息
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("**🎯 应用特性：**")
+    st.markdown("- 用户交互功能")
+    st.markdown("- 文件上传读取")
+    st.markdown("- 静态文件处理")
+    st.markdown("- 数据展示分析")
+    st.markdown("- 响应式设计")
+
+with col2:
+    st.markdown("**🛠️ 技术栈：**")
+    st.markdown(f"- Streamlit {st.__version__}")
+    st.markdown("- Pandas 2.2.0+")
+    st.markdown("- Python 3.13+")
+    st.markdown("- 云端部署就绪")
+
+# 显示版本和链接信息
+st.markdown("---")
+st.markdown("**📚 相关链接：**")
+st.markdown("- [GitHub 仓库](https://github.com/franksunye/StreamlitCCDemo)")
+st.markdown("- [在线演示](https://sccdemo.streamlit.app/)")
+st.markdown("- [Streamlit 文档](https://docs.streamlit.io/)")
+
+# 显示当前版本信息
+st.markdown("---")
+st.markdown(f"**📋 版本信息：** Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Cloud") 
