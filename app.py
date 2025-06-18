@@ -316,39 +316,40 @@ elif current_page_id == "about":
         st.markdown(get_text("feature_file_about", current_language))
         st.markdown(get_text("feature_static_about", current_language))
         st.markdown(get_text("feature_data_about", current_language))
-        st.markdown("- SQLite 数据库支持")
-        st.markdown("- 响应式设计")
-        st.markdown("- 菜单导航系统")
-        st.markdown("- 🌐 双语支持 (English/中文)")
+        st.markdown(get_text("feature_sqlite", current_language))
+        st.markdown(get_text("feature_responsive", current_language))
+        st.markdown(get_text("feature_menu_nav", current_language))
+        st.markdown(get_text("feature_bilingual", current_language))
     
     with col2:
-        st.markdown("**🛠️ 技术栈：**")
-        st.markdown(f"- Streamlit {st.__version__}")
-        st.markdown("- Pandas 2.2.0+")
-        st.markdown("- SQLite 数据库")
-        st.markdown("- Python 3.13+")
-        st.markdown("- 云端部署就绪")
-        st.markdown("- 国际化支持")
+        st.markdown(get_text("tech_stack_title", current_language))
+        st.markdown(get_text("tech_streamlit", current_language).format(version=st.__version__))
+        st.markdown(get_text("tech_pandas", current_language))
+        st.markdown(get_text("tech_sqlite", current_language))
+        st.markdown(get_text("tech_python", current_language))
+        st.markdown(get_text("tech_cloud", current_language))
+        st.markdown(get_text("tech_i18n", current_language))
     
-    # 显示版本和链接信息
+    # 显示相关链接
     st.markdown("---")
-    st.markdown("**📚 相关链接：**")
-    st.markdown("- [GitHub 仓库](https://github.com/franksunye/StreamlitCCDemo)")
-    st.markdown("- [在线演示](https://sccdemo.streamlit.app/)")
-    st.markdown("- [Streamlit 文档](https://docs.streamlit.io/)")
+    st.markdown(get_text("links_title", current_language))
+    st.markdown(get_text("link_github", current_language), unsafe_allow_html=True)
+    st.markdown(get_text("link_demo", current_language), unsafe_allow_html=True)
+    st.markdown(get_text("link_docs", current_language), unsafe_allow_html=True)
     
     # 显示当前版本信息
     st.markdown("---")
-    st.markdown(f"**📋 版本信息：** v0.1.0 | Streamlit {st.__version__} | 支持 Python 3.13+ | 兼容 Streamlit Community Cloud")
+    st.markdown(get_text("version_info_title", current_language))
+    st.markdown(get_text("version_info", current_language).format(app_version="v0.1.0", streamlit_version=st.__version__))
     
     # 显示项目结构
     st.markdown("---")
-    st.markdown("**📁 项目结构：**")
+    st.markdown(get_text("project_structure_title", current_language))
     st.markdown("""
     ```
     StreamlitCCDemo/
     ├── app.py                    # 主应用文件
-    ├── translations.py           # 双语翻译配置
+    ├── translations.json         # 多语言翻译配置
     ├── requirements.txt          # Python 依赖
     ├── README.md                # 项目说明
     ├── LICENSE                  # MIT 许可证
