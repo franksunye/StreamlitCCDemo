@@ -4,20 +4,20 @@ import pandas as pd
 import os
 from database import FeedbackDB
 
-# 初始化数据库
-@st.cache_resource
-def init_db():
-    return FeedbackDB()
-
-db = init_db()
-
-# 设置页面配置
+# 必须放在所有 Streamlit 相关代码之前
 st.set_page_config(
     page_title="Streamlit Cloud Demo",
     page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# 初始化数据库
+@st.cache_resource
+def init_db():
+    return FeedbackDB()
+
+db = init_db()
 
 # 侧边栏菜单
 st.sidebar.title("🚀 导航菜单")
