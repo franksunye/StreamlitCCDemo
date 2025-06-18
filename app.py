@@ -1,4 +1,7 @@
 import streamlit as st
+import json
+import pandas as pd
+import os
 
 # 设置页面标题
 st.title("极简 Streamlit 应用")
@@ -21,9 +24,79 @@ favorite_color = st.selectbox(
 )
 st.write(f"你喜欢的颜色是：{favorite_color}")
 
+# 添加静态文件读取功能
+st.markdown("---")
+st.markdown("### 📂 静态文件读取演示")
+
+# 创建两列布局
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("#### 📊 JSON 数据文件")
+    
+    # 读取 JSON 文件
+    try:
+        with open('data/sample_data.json', 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
+        
+        # 显示应用信息
+        st.markdown("**应用信息：**")
+        app_info = json_data['app_info']
+        st.write(f"- 名称：{app_info['name']}")
+        st.write(f"- 版本：{app_info['version']}")
+        st.write(f"- 描述：{app_info['description']}")
+        
+        # 显示功能列表
+        st.markdown("**功能特性：**")
+        for feature in app_info['features']:
+            st.write(f"- {feature}")
+        
+        # 显示用户数据
+        st.markdown("**用户数据：**")
+        users = json_data['sample_data']['users']
+        for user in users:
+            st.write(f"- {user['name']} ({user['age']}岁, {user['city']})")
+        
+        # 显示统计信息
+        stats = json_data['sample_data']['statistics']
+        st.markdown("**统计信息：**")
+        st.write(f"- 总用户数：{stats['total_users']}")
+        st.write(f"- 平均年龄：{stats['average_age']}")
+        st.write(f"- 城市：{', '.join(stats['cities'])}")
+        
+    except Exception as e:
+        st.error(f"❌ 读取 JSON 文件时出错：{str(e)}")
+
+with col2:
+    st.markdown("#### 🌤️ CSV 数据文件")
+    
+    # 读取 CSV 文件
+    try:
+        df = pd.read_csv('data/weather_data.csv')
+        
+        # 显示数据表格
+        st.markdown("**天气数据：**")
+        st.dataframe(df, use_container_width=True)
+        
+        # 显示统计信息
+        st.markdown("**数据统计：**")
+        st.write(f"- 总记录数：{len(df)}")
+        st.write(f"- 城市数量：{df['城市'].nunique()}")
+        st.write(f"- 平均温度：{df['温度'].mean():.1f}°C")
+        st.write(f"- 平均湿度：{df['湿度'].mean():.1f}%")
+        
+        # 显示天气状况统计
+        weather_counts = df['天气状况'].value_counts()
+        st.markdown("**天气状况分布：**")
+        for weather, count in weather_counts.items():
+            st.write(f"- {weather}：{count}次")
+            
+    except Exception as e:
+        st.error(f"❌ 读取 CSV 文件时出错：{str(e)}")
+
 # 添加文件读取功能
 st.markdown("---")
-st.markdown("### 📁 文件读取演示")
+st.markdown("### 📁 文件上传演示")
 
 # 文件上传组件
 uploaded_file = st.file_uploader(
@@ -66,4 +139,4 @@ if uploaded_file is not None:
 st.markdown("---")
 st.markdown("### 关于这个应用")
 st.markdown("这是一个最简单的 Streamlit 应用示例，可以在 Streamlit Cloud 上部署。")
-st.markdown("**新功能：** 支持本地文件上传和内容读取！") 
+st.markdown("**功能：** 支持用户交互、文件上传、静态文件读取和数据展示！") 

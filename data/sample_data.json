@@ -1,0 +1,49 @@
+{
+  "app_info": {
+    "name": "Streamlit Cloud Demo",
+    "version": "1.0.0",
+    "description": "极简 Streamlit 应用示例",
+    "features": [
+      "用户交互",
+      "文件上传",
+      "静态文件读取",
+      "数据展示"
+    ]
+  },
+  "sample_data": {
+    "users": [
+      {
+        "id": 1,
+        "name": "张三",
+        "age": 25,
+        "city": "北京",
+        "interests": ["编程", "阅读", "旅行"]
+      },
+      {
+        "id": 2,
+        "name": "李四",
+        "age": 30,
+        "city": "上海",
+        "interests": ["音乐", "摄影", "美食"]
+      },
+      {
+        "id": 3,
+        "name": "王五",
+        "age": 28,
+        "city": "深圳",
+        "interests": ["运动", "电影", "科技"]
+      }
+    ],
+    "statistics": {
+      "total_users": 3,
+      "average_age": 27.67,
+      "cities": ["北京", "上海", "深圳"],
+      "total_interests": 9
+    }
+  },
+  "metadata": {
+    "created_date": "2025-01-27",
+    "file_type": "JSON",
+    "purpose": "演示静态文件读取功能"
+  }
+} 
