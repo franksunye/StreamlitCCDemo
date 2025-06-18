@@ -119,6 +119,7 @@ if current_page_id == "home":
     st.markdown(get_text("features_title", current_language))
     st.markdown(get_text("features_intro", current_language))
     st.markdown(get_text("feature_interactive", current_language))
+    st.markdown(get_text("feature_chat", current_language))
     st.markdown(get_text("feature_data", current_language))
     st.markdown(get_text("feature_file", current_language))
     st.markdown(get_text("feature_db", current_language))
@@ -338,6 +339,7 @@ elif current_page_id == "about":
     with col1:
         st.markdown(get_text("app_features_title", current_language))
         st.markdown(get_text("feature_interactive_about", current_language))
+        st.markdown(get_text("feature_chat_about", current_language))
         st.markdown(get_text("feature_file_about", current_language))
         st.markdown(get_text("feature_static_about", current_language))
         st.markdown(get_text("feature_data_about", current_language))
