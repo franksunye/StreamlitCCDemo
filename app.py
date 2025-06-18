@@ -52,6 +52,7 @@ menu_options = {
     "data_display": get_text("menu_data_display", current_language),
     "file_processing": get_text("menu_file_processing", current_language),
     "database": get_text("menu_database", current_language),
+    "chat": get_text("menu_chat", current_language),
     "about": get_text("menu_about", current_language)
 }
 
@@ -301,6 +302,30 @@ elif current_page_id == "database":
                     st.markdown("---")
         else:
             st.info(get_text("no_feedback", current_language))
+
+elif current_page_id == "chat":
+    st.title(get_text("chat_title", current_language))
+    st.markdown(get_text("chat_welcome", current_language))
+    if "chat_messages" not in st.session_state:
+        st.session_state.chat_messages = []
+    # 展示历史消息
+    if st.session_state.chat_messages:
+        for msg in st.session_state.chat_messages:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+    else:
+        st.info(get_text("chat_empty", current_language))
+    # 聊天输入
+    if prompt := st.chat_input(get_text("chat_input_placeholder", current_language)):
+        st.session_state.chat_messages.append({"role": "user", "content": prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        # AI回复（简单回显/多语言）
+        with st.chat_message("assistant"):
+            st.markdown(get_text("chat_ai_thinking", current_language))
+        response = f"Echo: {prompt}"
+        st.session_state.chat_messages.append({"role": "assistant", "content": response})
+        st.rerun()
 
 elif current_page_id == "about":
     # 关于页面 - 应用信息

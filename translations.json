@@ -29,6 +29,7 @@
       "menu_file_processing": "📁 File Processing",
       "menu_database": "💬 Database",
       "menu_about": "ℹ️ About",
+      "menu_chat": "💬 Chat Demo",
       "home_title": "🏠 Home - Basic Interactive Features",
       "home_welcome": "Welcome to Streamlit Community Cloud Demo! This is a comprehensive Streamlit application example.",
       "input_name_label": "Enter your name:",
@@ -131,7 +132,12 @@
       "link_docs": "- [Streamlit Documentation](https://docs.streamlit.io/)",
       "version_info_title": "**📋 Version Info:**",
       "version_info": "v{app_version} | Streamlit {streamlit_version} | Python 3.13+ | Compatible with Streamlit Community Cloud",
-      "project_structure_title": "**📁 Project Structure:**"
+      "project_structure_title": "**📁 Project Structure:**",
+      "chat_title": "💬 Chat Demo - Interactive Conversation",
+      "chat_input_placeholder": "Type your message and press Enter...",
+      "chat_ai_thinking": "🤖 AI is thinking...",
+      "chat_welcome": "Welcome to the Chat Demo! Start a conversation below.",
+      "chat_empty": "No messages yet. Say hello!"
     },
     "zh": {
       "page_title": "Streamlit Community Cloud Demo",
@@ -142,6 +148,7 @@
       "menu_file_processing": "📁 文件处理",
       "menu_database": "💬 数据库",
       "menu_about": "ℹ️ 关于",
+      "menu_chat": "💬 聊天演示",
       "home_title": "🏠 首页 - 基础交互功能",
       "home_welcome": "欢迎使用 Streamlit Community Cloud Demo！这是一个功能完整的 Streamlit 应用示例。",
       "input_name_label": "请输入你的名字：",
@@ -244,7 +251,12 @@
       "link_docs": "- [Streamlit 文档](https://docs.streamlit.io/)",
       "version_info_title": "**📋 版本信息：**",
       "version_info": "v{app_version} | Streamlit {streamlit_version} | 支持 Python 3.13+ | 兼容 Streamlit Community Cloud",
-      "project_structure_title": "**📁 项目结构：**"
+      "project_structure_title": "**📁 项目结构：**",
+      "chat_title": "💬 聊天演示 - 互动对话",
+      "chat_input_placeholder": "请输入消息并回车...",
+      "chat_ai_thinking": "🤖 AI 正在思考...",
+      "chat_welcome": "欢迎来到聊天演示！在下方开始对话。",
+      "chat_empty": "暂无消息，先打个招呼吧！"
     },
     "es": {
       "page_title": "Streamlit Community Cloud Demo",
@@ -255,6 +267,7 @@
       "menu_file_processing": "📁 Procesamiento de Archivos",
       "menu_database": "💬 Base de Datos",
       "menu_about": "ℹ️ Acerca de",
+      "menu_chat": "💬 Demo de Chat",
       "home_title": "🏠 Inicio - Funciones Interactivas Básicas",
       "home_welcome": "¡Bienvenido a Streamlit Community Cloud Demo! Este es un ejemplo completo de aplicación Streamlit.",
       "input_name_label": "Ingresa tu nombre:",
@@ -357,7 +370,12 @@
       "link_docs": "- [Documentación de Streamlit](https://docs.streamlit.io/)",
       "version_info_title": "**📋 Información de la Versión:**",
       "version_info": "v{app_version} | Streamlit {streamlit_version} | Python 3.13+ | Compatible con Streamlit Community Cloud",
-      "project_structure_title": "**📁 Estructura del Proyecto:**"
+      "project_structure_title": "**📁 Estructura del Proyecto:**",
+      "chat_title": "💬 Demo de Chat - Conversación Interactiva",
+      "chat_input_placeholder": "Escribe tu mensaje y presiona Enter...",
+      "chat_ai_thinking": "🤖 La IA está pensando...",
+      "chat_welcome": "¡Bienvenido al Demo de Chat! Comienza una conversación abajo.",
+      "chat_empty": "Aún no hay mensajes. ¡Saluda!"
     }
   }
 } 
