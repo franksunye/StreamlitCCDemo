@@ -2,19 +2,20 @@ import streamlit as st
 import json
 import pandas as pd
 import os
+from database import FeedbackDB
+
+# 初始化数据库
+@st.cache_resource
+def init_db():
+    return FeedbackDB()
+
+db = init_db()
 
 # 设置页面标题
 st.title("极简 Streamlit 应用")
 
-# 初始化 session state
-if 'user_name' not in st.session_state:
-    st.session_state.user_name = "世界"
-
 # 添加一个简单的输入框
-user_name = st.text_input("请输入你的名字：", value=st.session_state.user_name, key="user_name_input")
-
-# 更新 session state
-st.session_state.user_name = user_name
+user_name = st.text_input("请输入你的名字：", "世界")
 
 # 添加一个按钮
 if st.button("点击问候"):
@@ -101,6 +102,60 @@ with col2:
     except Exception as e:
         st.error(f"❌ 读取 CSV 文件时出错：{str(e)}")
 
+# 添加 SQLite 用户反馈功能
+st.markdown("---")
+st.markdown("### 💬 SQLite 用户反馈系统")
+
+# 创建两列布局
+feedback_col1, feedback_col2 = st.columns([1, 2])
+
+with feedback_col1:
+    st.markdown("#### 📝 提交反馈")
+    
+    # 反馈表单
+    with st.form("feedback_form"):
+        feedback_name = st.text_input("您的姓名：", key="feedback_name")
+        feedback_message = st.text_area("反馈内容：", height=100, key="feedback_message")
+        submit_button = st.form_submit_button("提交反馈")
+        
+        if submit_button:
+            if feedback_name and feedback_message:
+                if db.add_feedback(feedback_name, feedback_message):
+                    st.success("✅ 反馈提交成功！")
+                    # 清空表单
+                    st.rerun()
+                else:
+                    st.error("❌ 反馈提交失败，请重试")
+            else:
+                st.warning("⚠️ 请填写姓名和反馈内容")
+
+with feedback_col2:
+    st.markdown("#### 📊 反馈统计")
+    
+    # 获取反馈统计
+    feedback_count = db.get_feedback_count()
+    st.metric("总反馈数", feedback_count)
+    
+    # 显示最新反馈
+    st.markdown("**最新反馈：**")
+    all_feedback = db.get_all_feedback()
+    
+    if all_feedback:
+        # 只显示最新的3条反馈
+        for i, (feedback_id, name, message, created_at) in enumerate(all_feedback[:3]):
+            with st.container():
+                st.markdown(f"**{name}** ({created_at})")
+                st.markdown(f"_{message}_")
+                if st.button(f"删除", key=f"delete_{feedback_id}"):
+                    if db.delete_feedback(feedback_id):
+                        st.success("✅ 删除成功！")
+                        st.rerun()
+                    else:
+                        st.error("❌ 删除失败")
+                st.markdown("---")
+    else:
+        st.info("暂无反馈")
+
 # 添加文件读取功能
 st.markdown("---")
 st.markdown("### 📁 文件上传演示")
@@ -155,12 +210,14 @@ with col1:
     st.markdown("- 文件上传读取")
     st.markdown("- 静态文件处理")
     st.markdown("- 数据展示分析")
+    st.markdown("- SQLite 数据库支持")
     st.markdown("- 响应式设计")
 
 with col2:
     st.markdown("**🛠️ 技术栈：**")
     st.markdown(f"- Streamlit {st.__version__}")
     st.markdown("- Pandas 2.2.0+")
+    st.markdown("- SQLite 数据库")
     st.markdown("- Python 3.13+")
     st.markdown("- 云端部署就绪")
 
