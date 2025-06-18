@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import os
 from database import FeedbackDB
-from translations import get_text, get_language, set_language
+from i18n import get_text, get_language, set_language, get_available_languages, get_language_display_name
 
 # 必须放在所有 Streamlit 相关代码之前
 st.set_page_config(
@@ -25,20 +25,23 @@ current_language = get_language()
 
 # 语言切换器
 st.sidebar.markdown("---")
-language = st.sidebar.selectbox(
+available_languages = get_available_languages()
+language_options = [get_language_display_name(lang) for lang in available_languages]
+current_lang_index = available_languages.index(current_language) if current_language in available_languages else 0
+
+selected_language_display = st.sidebar.selectbox(
     get_text("language_selector", current_language),
-    [get_text("language_en", "en"), get_text("language_zh", "zh")],
-    index=0 if current_language == "en" else 1,
+    language_options,
+    index=current_lang_index,
     key="language_selector"
 )
 
 # 更新语言设置
-if language == get_text("language_en", "en"):
-    set_language("en")
-    current_language = "en"
-else:
-    set_language("zh")
-    current_language = "zh"
+selected_language = available_languages[language_options.index(selected_language_display)]
+if selected_language != current_language:
+    set_language(selected_language)
+    current_language = selected_language
+    st.rerun()
 
 # 侧边栏菜单
 st.sidebar.title(get_text("sidebar_title", current_language))
@@ -62,10 +65,13 @@ current_page = st.sidebar.selectbox(
 # 获取当前页面标识
 current_page_id = menu_options[current_page]
 
-# 颜色选项
-color_options_en = ["Red", "Blue", "Green", "Yellow", "Purple"]
-color_options_zh = ["红色", "蓝色", "绿色", "黄色", "紫色"]
-color_options = color_options_en if current_language == "en" else color_options_zh
+# 颜色选项 - 根据语言提供不同的颜色选项
+color_options_map = {
+    "en": ["Red", "Blue", "Green", "Yellow", "Purple"],
+    "zh": ["红色", "蓝色", "绿色", "黄色", "紫色"],
+    "es": ["Rojo", "Azul", "Verde", "Amarillo", "Púrpura"]
+}
+color_options = color_options_map.get(current_language, color_options_map["en"])
 
 # 页面内容
 if current_page_id == "home":
