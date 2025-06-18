@@ -6,8 +6,15 @@ import os
 # 设置页面标题
 st.title("极简 Streamlit 应用")
 
+# 初始化 session state
+if 'user_name' not in st.session_state:
+    st.session_state.user_name = "世界"
+
 # 添加一个简单的输入框
-user_name = st.text_input("请输入你的名字：", "世界")
+user_name = st.text_input("请输入你的名字：", value=st.session_state.user_name, key="user_name_input")
+
+# 更新 session state
+st.session_state.user_name = user_name
 
 # 添加一个按钮
 if st.button("点击问候"):
@@ -139,4 +146,5 @@ if uploaded_file is not None:
 st.markdown("---")
 st.markdown("### 关于这个应用")
 st.markdown("这是一个最简单的 Streamlit 应用示例，可以在 Streamlit Cloud 上部署。")
-st.markdown("**功能：** 支持用户交互、文件上传、静态文件读取和数据展示！") 
+st.markdown("**功能：** 支持用户交互、文件上传、静态文件读取和数据展示！")
+st.markdown(f"**Streamlit 版本：** {st.__version__}") 
